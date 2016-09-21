@@ -1,0 +1,56 @@
+' {$STAMP BS2}
+' {$PBASIC 2.5}
+counter VAR Word
+loopLength VAR Word
+main:
+  loopLength = 825
+  GOSUB goForward
+  GOSUB leftTurn
+  PAUSE 50
+  loopLength = 1080
+  GOSUB goForward
+  PAUSE 50
+  GOSUB leftTurn
+  PAUSE 50
+  loopLength = 1080
+  GOSUB goForward
+  PAUSE 50
+  GOSUB leftTurn
+  PAUSE 50
+  loopLength = 1060
+  PAUSE 50
+  GOSUB goForward
+  PAUSE 50
+  GOSUB leftTurn
+END                     ' 51.57 = 1 sec
+
+
+goForward:
+  FOR counter = 1 TO loopLength
+    PULSOUT 12,800
+    PULSOUT 13,658
+    PAUSE 20
+  NEXT
+  RETURN
+
+goBackward:
+  FOR counter = 1 TO 220
+    PULSOUT 13,850
+    PULSOUT 12,650
+    PAUSE 20
+  NEXT
+  RETURN
+
+leftTurn:
+  FOR counter = 1 TO 54
+    PULSOUT 13,650
+    PAUSE 20
+  NEXT
+  RETURN
+
+rightTurn:
+  FOR counter = 1 TO 54
+    PULSOUT 12,850
+    PAUSE 20
+  NEXT
+  RETURN
